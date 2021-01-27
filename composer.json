@@ -1,0 +1,20 @@
+{
+    "name": "nicolas-castro/tracktik-code-challenge",
+    "description": "Challenge",
+    "authors": [
+        {
+            "name": "Nicolas Castro",
+            "email": "nrctkno@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Challenge\\": "challenge/",
+            "": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.5"
+    }
+}
