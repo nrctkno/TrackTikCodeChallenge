@@ -17,6 +17,6 @@
 
 ## Runnig the tests:
 
-Note: had to include the phpunit-9.5.1.phar binary because of a known execution error (Class 'PHPUnit\Framework\TestCase' not found) present int the version installed via Composer.
+> Note: had to include the phpunit-9.5.1.phar binary because of a known execution error (Class 'PHPUnit\Framework\TestCase' not found) present in the version installed via Composer.
 
 In the project's root folder run `php phpunit.phar`
