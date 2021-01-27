@@ -21,6 +21,9 @@ Maybe you prefer to run the app in a docker container:
 -  In your console run `docker run -d -p 8080:80 -v YOUR_LOCAL_PROJECT_ABSOLUTE_PATH:/var/www/html php:7.4-apache`.
 -  Access from your browser to http://localhost:8080/web/index.php (replace localhost by a valid host or IP).
 
+To connect the console run `docker exec -it "container_name" /bin/bash` . 
+
+> To get the container name run `docker container ls` and check the _NAMES_ column.
 
 
 ## Runnig the tests:
