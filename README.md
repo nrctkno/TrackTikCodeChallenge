@@ -12,8 +12,16 @@
 - You must have [Composer](https://getcomposer.org/) installed in your system.
 - Run `composer dump-autoload`; no dependencies needed.
 - Run the application:
-  - From your browser: go to http://localhost/TrackTikCodeChallenge/web/index.php (replace localhost by a valid host or IP)
+  - From your browser: go to http://localhost/TrackTikCodeChallenge/web/index.php (replace localhost by a valid host or IP).
   - From your console: `cd` to the web/ folder and run `php -f index.php`
+
+## Using Docker
+
+Maybe you prefer to run the app in a docker container:
+-  In your console run `docker run -d -p 8080:80 -v YOUR_LOCAL_PROJECT_ABSOLUTE_PATH:/var/www/html php:7.4-apache`.
+-  Access from your browser to http://localhost:8080/web/index.php (replace localhost by a valid host or IP).
+
+
 
 ## Runnig the tests:
 
