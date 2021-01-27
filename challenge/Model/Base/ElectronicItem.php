@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Challenge\Model\Base;
 
 use Challenge\Collection\Base\ElectronicItemsInterface;
+use Challenge\Exception\ElectronicItemExtrasExceededException;
 
 abstract class ElectronicItem implements ElectronicItemInterface
     {
-
-    const ERROR_EXTRAS_EXCEEDED = 'Couldn\'t create an electronic item: the related extras exceed the allowed quantity. ';
 
     /**
      * @var float
@@ -49,9 +48,9 @@ abstract class ElectronicItem implements ElectronicItemInterface
 
         if (!is_null($max_extras) && ($curr_extras > $max_extras))
             {
-            throw new \Exception(
-                    self::ERROR_EXTRAS_EXCEEDED
-                    . ' Maximum: ' . $max_extras
+
+            throw new ElectronicItemExtrasExceededException(
+                    'Maximum: ' . $max_extras
                     . '; found: ' . $curr_extras
             );
             }

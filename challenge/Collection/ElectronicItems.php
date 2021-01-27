@@ -33,21 +33,6 @@ class ElectronicItems implements Base\ElectronicItemsInterface, \Countable
 
     public function getTotal()
         {
-
-        /*
-          if (count($this->items) === 0)
-          {
-
-          return 0;
-          }
-
-          $total = array_reduce($this->items, function($total, $item)
-          {
-          return $total + $item->getExtrasPrice();
-          }
-          );
-         */
-
         $total = 0;
         foreach ($this->items as $item)
             {

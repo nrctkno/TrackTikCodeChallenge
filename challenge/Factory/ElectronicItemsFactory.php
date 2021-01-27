@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Challenge\Factory;
 
 use Challenge\Collection\ElectronicItems;
+use Challenge\Exception\ElectronicItemsFactoryIncompleteInfoException;
+use Challenge\Exception\ElectronicItemsFactoryInvalidItemException;
 
 class ElectronicItemsFactory
     {
 
-    const ERROR_IMCOMPLETE_INFO = 'Couldn\'t create an electronic item: the item does not have the required information. Required: \'%s\'; found: \'%s\'.';
-    const ERROR_INVALID_ITEM = 'Item type isn\'t valid: \'%s\'.';
     const REQUIRED_ATTRIBUTES = ['type', 'price', 'wired'];
 
     public static function create(array $items_definition): ElectronicItems
@@ -43,8 +43,8 @@ class ElectronicItemsFactory
         if (count(array_diff(self::REQUIRED_ATTRIBUTES, $found_attributes)) > 0)
             {
 
-            throw new \Exception(sprintf(
-                            self::ERROR_IMCOMPLETE_INFO,
+            throw new ElectronicItemsFactoryIncompleteInfoException(sprintf(
+                            'Required: \'%s\'; found: \'%s\'',
                             join(', ', self::REQUIRED_ATTRIBUTES),
                             join(', ', $found_attributes)
             ));
@@ -57,10 +57,7 @@ class ElectronicItemsFactory
         if (!class_exists($item_class))
             {
 
-            throw new \Exception(sprintf(
-                            self::ERROR_INVALID_ITEM,
-                            $requested_type
-            ));
+            throw new ElectronicItemsFactoryInvalidItemException($requested_type);
             }
         }
 
